@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:background="#ffffff"
+    tools:context=".ProfileActivity">
+
+
+
+    <TextView
+        android:id="@+id/month_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:text="Attendance Calendar"
+        android:textStyle="bold" />
+
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactcalendar_view"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_height="200dp"
+        app:compactCalendarTargetHeight="200dp"
+        app:compactCalendarTextSize="15sp"
+        app:compactCalendarBackgroundColor="#ffffff"
+        app:compactCalendarTextColor="#0472f9"
+        app:compactCalendarEventIndicatorStyle="fill_large_indicator"
+        app:compactCalendarMultiEventIndicatorColor="#000000"
+        app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"
+        app:compactCalendarCurrentSelectedDayIndicatorStyle="no_fill_large_indicator"
+        app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="false"
+        app:compactCalendarCurrentDayBackgroundColor="#1E90FF"
+
+        />
+
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="30dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_id"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        app:cardBackgroundColor="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
+        card_view:cardUseCompatPadding="true"
+        >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:textColor="#eb4024"
+        android:text="Absents"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:text="Full Days  : "
+                android:textStyle="bold"
+                android:layout_weight=".5"/>
+
+            <TextView
+                android:id="@+id/check_here_full"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="left"
+                android:textColor="#1E90FF"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_weight=".5"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:layout_weight=".5"
+                android:gravity="center"
+                android:text="Half Days : "
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/check_here_half"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textColor="#1E90FF"
+                android:textSize="25sp"
+                android:layout_weight=".5"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
+
+</LinearLayout>
+

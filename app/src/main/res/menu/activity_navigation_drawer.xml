@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_homea"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_calendara"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_manager"
+            android:title="@string/menu_slideshow" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_web"
+                android:icon="@drawable/ic_internet"
+                android:title="Website" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_mail_black_envelope_symbol"
+                android:title="@string/menu_send" />
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_signouta"
+                android:title="@string/menu_share" />
+        </menu>
+
+    </item>
+
+</menu>
