@@ -382,10 +382,7 @@ public class CalendarActivity extends AppCompatActivity {
             case android.R.id.home:
                 // todo: goto back activity from here
 
-                Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
+                super.onBackPressed();
                 return true;
 
             default:

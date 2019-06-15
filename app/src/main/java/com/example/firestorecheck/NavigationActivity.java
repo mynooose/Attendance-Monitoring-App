@@ -66,7 +66,7 @@ public class NavigationActivity extends AppCompatActivity
     String HardCoddedAddress_other = "78:11:dc:35:7e:5e";
     String HardCoddedAddress_noida = "48:ee:0c:45:ba:c6";
     //boolean did_exists;
-    String fetched_did, eomString;
+    String fetched_did, eomString, ratingString;
     Long epTime;
     long todayPunchInHr = 0;
     long todayPunchInMin = 0;
@@ -105,7 +105,7 @@ public class NavigationActivity extends AppCompatActivity
             }
         });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+       final NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -126,14 +126,42 @@ public class NavigationActivity extends AppCompatActivity
         final String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
 
-        View headerView = navigationView.getHeaderView(0);
 
+
+        final View headerView = navigationView.getHeaderView(0);
+
+        //getting rating
         GoogleSignInAccount googleSignInAccount = getIntent().getParcelableExtra(GOOGLE_ACCOUNT);
+        db.collection("Employees").document(Objects.requireNonNull(googleSignInAccount.getEmail()))
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        //View headerView = navigationView.getHeaderView(0);
+                        Log.d(TAG, "23DocumentSnapshot successfully written!");
+                        if (documentSnapshot.exists()) {
+                            Log.d(TAG, "2DocumentSnapshot successfully written!");
+                            // boolean did_exists = false;
+                            //Toast.makeText(getApplicationContext(), "Weppic : Doc exists", Toast.LENGTH_SHORT).show();
+
+                            ratingString = documentSnapshot.getString("Rating");
+                        } else {
+                            ratingString = "0.0";
+                            Log.d(TAG, "23DocumentSnapshot doesn't exists!");
+                            //Toast.makeText(getApplicationContext(), "Weppic : Doc doesn't exists", Toast.LENGTH_SHORT).show();
+                        }
+                        TextView ratingTv = headerView.findViewById(R.id.rating_tv);
+                        ratingTv.setText(ratingString);
+                    }
+                });
+
+
         //Picasso.get().load(googleSignInAccount.getPhotoUrl()).centerInside().fit().into(profileImage);
         //profileName.setText(googleSignInAccount.getDisplayName());
         // profileEmail.setText(googleSignInAccount.getEmail());
         TextView headerName = headerView.findViewById(R.id.profile_name);
         headerName.setText(googleSignInAccount.getDisplayName());
+
         TextView headerEmail = headerView.findViewById(R.id.profile_email);
         headerEmail.setText(googleSignInAccount.getEmail());
         ImageView headerImage = headerView.findViewById(R.id.profile_image);
